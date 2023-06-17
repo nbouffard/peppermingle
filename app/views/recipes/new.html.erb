@@ -1,22 +1,157 @@
+
+Apologies for the confusion. You can add the <div id="message-container"></div> code snippet right before the <p>Add Ingredients</p> line. Here's the updated code:
+
+html
+Copy code
 <div class="form">
   <div class="form-container">
     <h1>Add New Recipe</h1>
 
-      <%= simple_form_for @recipe do |f| %>
-        <%= f.input :title, placeholder: "The title of your recipe.", input_html: { class: "form-input-style" }%>
-        <%= f.input :description, placeholder: "What is the recipe about?", input_html: { class: "form-input-style"  }%>
-        <%= f.input :ingredients, placeholder: "Which ingredients are needed?", input_html: { class: "form-input-style"  }%>
-        <%= f.input :directions, placeholder: "What needs to be done, step by step?", input_html: { class: "form-input-style"  }%>
-        <%= f.input :category, placeholder: "e.g. Vegan", input_html: { class: "form-input-style"  }%>
-        <%= f.input :cuisine, placeholder: "e.g. Mexican", input_html: { class: "form-input-style"  }%>
-        <%= f.input :prep_time, placeholder: "Time for preparation in minutes", input_html: { class: "form-input-style"  }%>
-        <%= f.input :total_time, placeholder: "Total time needed in minutes", input_html: { class: "form-input-style"  }%>
-        <%= f.input :difficulty, collection: ["Very Easy", "Easy", "Medium", "Difficult"], prompt: "Choose Difficulty", input_html: { class: "form-input-style"  }%>
-        <%= f.input :servings, placeholder: "e.g. 4", input_html: { class: "form-input-style" }%>
+    <div id="message-container"></div>
 
-        <div class="button", style="margin-top: 40px">
-          <%= f.button :submit %>
+    <%= simple_form_for @recipe do |f| %>
+      <%= f.input :title, placeholder: "The title of your recipe.", input_html: { class: "form-input-style" }%>
+      <%= f.input :description, placeholder: "What is the recipe about?", input_html: { class: "form-input-style" }%>
+
+      <p>Add Ingredients</p>
+      <div id="ingredient-container">
+        <%= f.simple_fields_for :ingredients do |ingredient_form| %>
+          <div class="ingredient-fields">
+            <div class="ingredient-field">
+              <%= ingredient_form.input :amount, input_html: { class: "amount-input" } %>
+            </div>
+            <div class="ingredient-field">
+              <%= ingredient_form.input :name, input_html: { class: "name-input" } %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="ingredient-fields-template" style="display: none">
+        <div class="ingredient-fields">
+          <div class="ingredient-field">
+            <%= f.simple_fields_for :ingredients, Ingredient.new, child_index: '__INDEX__' do |ingredient_form| %>
+              <%= ingredient_form.input :amount, input_html: { class: "amount-input" } %>
+            <% end %>
+          </div>
+          <div class="ingredient-field">
+            <%= f.simple_fields_for :ingredients, Ingredient.new, child_index: '__INDEX__' do |ingredient_form| %>
+              <%= ingredient_form.input :name, input_html: { class: "name-input" } %>
+            <% end %>
+          </div>
         </div>
-      <% end %>
+      </div>
+
+      <button type="button" id="add-ingredient">Add Ingredient</button>
+
+      <div id="ingredients-preview">
+        <% if @recipe.ingredients.present? %>
+          <ul id="ingredients-list">
+            <% @recipe.ingredients.each do |ingredient| %>
+              <% if ingredient.amount.present? && ingredient.name.present? %>
+                <li>
+                  <%= ingredient.amount %> - <%= ingredient.name %>
+                  <button class="edit-ingredient">Edit</button>
+                  <button class="delete-ingredient">Delete</button>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+
+      <%= f.input :directions, placeholder: "What needs to be done, step by step?", input_html: { class: "form-input-style" }%>
+      <%= f.input :category, placeholder: "e.g. Vegan", input_html: { class: "form-input-style" }%>
+      <%= f.input :cuisine, placeholder: "e.g. Mexican", input_html: { class: "form-input-style" }%>
+      <%= f.input :prep_time, placeholder: "Time for preparation in minutes", input_html: { class: "form-input-style" }%>
+      <%= f.input :total_time, placeholder: "Total time needed in minutes", input_html: { class: "form-input-style" }%>
+      <%= f.input :difficulty, collection: ["Very Easy", "Easy", "Medium", "Difficult"], prompt: "Choose Difficulty", input_html: { class: "form-input-style" }%>
+      <%= f.input :servings, placeholder: "e.g. 4", input_html: { class: "form-input-style" }%>
+
+      <div class="button" style="margin-top: 40px">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var addIngredientBtn = document.getElementById('add-ingredient');
+        var ingredientContainer = document.getElementById('ingredient-container');
+        var ingredientFieldsTemplate = document.querySelector('.ingredient-fields-template');
+        var ingredientsList = document.getElementById('ingredients-list');
+        var messageContainer = document.getElementById('message-container');
+
+        addIngredientBtn.addEventListener('click', function() {
+          var amountInput = document.querySelector('.amount-input');
+          var nameInput = document.querySelector('.name-input');
+          var amount = amountInput.value.trim();
+          var name = nameInput.value.trim();
+
+          if (amount !== '' && name !== '') {
+            var index = new Date().getTime();
+            var newIngredientFields = ingredientFieldsTemplate.cloneNode(true);
+            newIngredientFields.innerHTML = newIngredientFields.innerHTML.replace(/__INDEX__/g, index);
+
+            ingredientContainer.appendChild(newIngredientFields);
+
+            var listItem = document.createElement('li');
+            listItem.innerHTML = '<span class="amount">' + amount + '</span> - <span class="name">' + name + '</span>';
+            listItem.innerHTML += '<button class="edit-ingredient">Edit</button>';
+            listItem.innerHTML += '<button class="delete-ingredient">Delete</button>';
+
+            ingredientsList.appendChild(listItem);
+
+            amountInput.value = '';
+            nameInput.value = '';
+
+            showMessage('Ingredient added', 'success');
+          } else {
+            showMessage('Please enter both amount and name', 'error');
+          }
+        });
+
+        // Delete an ingredient
+        ingredientsList.addEventListener('click', function(event) {
+          if (event.target.classList.contains('delete-ingredient')) {
+            var listItem = event.target.closest('li');
+            listItem.remove();
+
+            showMessage('Ingredient deleted', 'success');
+          }
+        });
+
+        // Edit an ingredient
+        ingredientsList.addEventListener('click', function(event) {
+          if (event.target.classList.contains('edit-ingredient')) {
+            var listItem = event.target.closest('li');
+            var amount = listItem.querySelector('.amount').innerText;
+            var name = listItem.querySelector('.name').innerText;
+
+            var amountInput = document.querySelector('.amount-input');
+            var nameInput = document.querySelector('.name-input');
+
+            amountInput.value = amount;
+            nameInput.value = name;
+
+            listItem.remove();
+
+            showMessage('Edit the ingredient and click "Add Ingredient"', 'info');
+          }
+        });
+
+        function showMessage(message, messageType) {
+          var messageElement = document.createElement('div');
+          messageElement.innerText = message;
+          messageElement.classList.add('message', messageType);
+
+          messageContainer.appendChild(messageElement);
+
+          setTimeout(function() {
+            messageElement.remove();
+          }, 3000);
+        }
+      });
+    </script>
   </div>
 </div>
