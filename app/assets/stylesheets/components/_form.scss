@@ -1,0 +1,69 @@
+/* Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+// Styling for the forms
+
+.form {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  z-index: 100;
+}
+
+.form-container {
+  width: 50%;
+  height: auto;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px 0px #C78D81;
+  color: #061326;
+  background-color: #E4DED2;
+  font-family: 'Aleo', serif;
+}
+
+.form h1 {
+    font-family: 'Aleo', serif;
+    text-decoration: none;
+    margin-bottom: 20px;
+    color: #061326;
+}
+
+.form h2 {
+  font-family: 'Aleo', serif;
+  text-decoration: none;
+  margin-bottom: 20px;
+  color: #061326;
+}
+
+.form button {
+  font-size: 15px;
+  color:#061326;
+  width: 100%;
+  max-width: 150px;
+  height: 30px;
+  white-space: nowrap;
+  background: linear-gradient(180deg, rgba(154,15,15,0.6980042016806722) 0%, rgba(154,15,15,0.7008053221288515) 50%, rgba(154,15,15,0.7008053221288515) 100%);
+}
+
+
+.form-container mark {
+      color: #061326;
+      margin-left: 5px;
+      text-shadow: none;
+      padding: 0.1em 0.4em;
+      border-radius: 0.8em 0.3em;
+      background: transparent;
+      background-image: linear-gradient(to right, rgba(199,141,129,1) 0%, rgba(199,141,129,1) 47%, rgba(199,141,129,0.21621148459383754) 100%);
+}
+
+.form-input-style {
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px 0px #F1B150;
+}
