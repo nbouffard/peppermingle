@@ -22,24 +22,28 @@
   margin: 10px;
   padding: 20px;
   border-radius: 10px;
+  border: 1px solid #F6D9DD;
   box-shadow: 5px 5px 0px 0px #C78D81;
   color: #061326;
-  background-color: #E4DED2;
+  background-color: #F9F5F2;
   font-family: 'Aleo', serif;
 }
 
 .form h1 {
-    font-family: 'Aleo', serif;
+    // font-family: 'Aleo', serif;
+    font-family: 'Petit Formal Script', cursive;
+    -webkit-text-stroke: 0.5px #567275;
     text-decoration: none;
     margin-bottom: 20px;
-    color: #061326;
+    color: #567275;
 }
 
 .form h2 {
-  font-family: 'Aleo', serif;
+  font-family: 'Petit Formal Script', cursive;
+  -webkit-text-stroke: 0.5px #567275;
   text-decoration: none;
   margin-bottom: 20px;
-  color: #061326;
+  color: #567275;
 }
 
 .form button {
@@ -53,17 +57,8 @@
 }
 
 
-.form-container mark {
-      color: #061326;
-      margin-left: 5px;
-      text-shadow: none;
-      padding: 0.1em 0.4em;
-      border-radius: 0.8em 0.3em;
-      background: transparent;
-      background-image: linear-gradient(to right, rgba(199,141,129,1) 0%, rgba(199,141,129,1) 47%, rgba(199,141,129,0.21621148459383754) 100%);
-}
-
 .form-input-style {
   border-radius: 10px;
-  box-shadow: 5px 5px 0px 0px #F1B150;
+  border: 1px solid #F6D9DD;
+  background-color: #E4DED2;
 }
