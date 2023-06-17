@@ -94,7 +94,7 @@ h3 {
   font-family: 'Petit Formal Script', cursive;
   color: #CA4E36;
   padding: 0px 20px 0px 10px;
-  text-align: center;
+  text-align: right;
   -webkit-text-stroke: 0.5px #CA4E36;
 }
 
@@ -204,12 +204,12 @@ p {
 }
 
 .notes-container h4 {
-  margin-top: 10px;
+  margin-top: 30px;
   margin-left: 50px;
 }
 
 .notes-container li {
   padding: 0;
-  margin: 0 30px;
+  margin: 0 40px 30px 20px;
   font-weight: 300;
 }
