@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :recipes, only: %i[new show create]
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :users, only: %i[show update]
 end
