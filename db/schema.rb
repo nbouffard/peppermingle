@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_20_063123) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_20_063124) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,5 +95,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_20_063123) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "events", "recipes"
   add_foreign_key "events", "users"
+  add_foreign_key "ingredients", "recipes"
   add_foreign_key "recipes", "users"
 end

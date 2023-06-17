@@ -1,20 +1,20 @@
 <div class="form">
   <div class="form-container">
-    <h1>Create New Recipe</h1>
+    <h1>Add New Recipe</h1>
 
       <%= simple_form_for @recipe do |f| %>
-        <%= f.input :title %>
-        <%= f.input :description %>
-        <%= f.input :ingredients %>
-        <%= f.input :directions %>
-        <%= f.input :category %>
-        <%= f.input :cuisine %>
-        <%= f.input :prep_time, placeholder: "Time in minutes"  %>
-        <%= f.input :total_time %>
-        <%= f.input :difficulty %>
-        <%= f.input :servings %>
+        <%= f.input :title, placeholder: "The title of your recipe.", input_html: { class: "form-input-style" }%>
+        <%= f.input :description, placeholder: "What is the recipe about?", input_html: { class: "form-input-style"  }%>
+        <%= f.input :ingredients, placeholder: "Which ingredients are needed?", input_html: { class: "form-input-style"  }%>
+        <%= f.input :directions, placeholder: "What needs to be done, step by step?", input_html: { class: "form-input-style"  }%>
+        <%= f.input :category, placeholder: "e.g. Vegan", input_html: { class: "form-input-style"  }%>
+        <%= f.input :cuisine, placeholder: "e.g. Mexican", input_html: { class: "form-input-style"  }%>
+        <%= f.input :prep_time, placeholder: "Time for preparation in minutes", input_html: { class: "form-input-style"  }%>
+        <%= f.input :total_time, placeholder: "Total time needed in minutes", input_html: { class: "form-input-style"  }%>
+        <%= f.input :difficulty, collection: ["Very Easy", "Easy", "Medium", "Difficult"], prompt: "Choose Difficulty", input_html: { class: "form-input-style"  }%>
+        <%= f.input :servings, placeholder: "e.g. 4", input_html: { class: "form-input-style" }%>
 
-        <div class="form-actions">
+        <div class="button", style="margin-top: 40px">
           <%= f.button :submit %>
         </div>
       <% end %>
