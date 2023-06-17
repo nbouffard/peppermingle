@@ -1,3 +1,5 @@
+<%= javascript_tag '/app/javascript/resize_recipe_card.js' %>
+
 <div class="recipe-card-container">
   <div class="recipe-card-img">
     <%= image_tag("https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", alt: "Recipe Photo", class: "recipe-card-img") %>
@@ -17,28 +19,64 @@
         </div>
       </div>
       <div class="recipe-icons">
-        <p><i class="fas fa-utensils" style="color: #38484c;"></i>Servings: 8</p>
-        <p><i class="fa-regular fa-clock" style="color: #38484c;"></i>Prep Time: 30 mins</p>
-        <p><i class="fa-regular fa-clock" style="color: #38484c;"></i>Total Time: 55 mins</p>
+        <p><i class="fas fa-utensils" style="color: #567275;"></i>Servings: 8</p>
+        <p><i class="fa-regular fa-clock" style="color: #567275;"></i>Prep Time: 30 mins</p>
+        <p><i class="fa-regular fa-clock" style="color: #567275;"></i>Total Time: 55 mins</p>
       </div>
     </div>
     <div class="recipe-bottom-container">
-      <div class="ingredients">
+      <div class="ingredients" id="ingredients-container">
         <h4>Ingredients</h4>
         <ul>
-          <li>Ingredient 1</li>
-          <li>Ingredient 2</li>
-          <li>Ingredient 3</li>
+          <li>500g strawberries, chopped</li>
+          <li>375g butter, softened</li>
+          <li>1 1/2 cups (225g) plain flour</li>
         </ul>
       </div>
-      <div class="directions">
+       <hr class="recipe-separator">
+      <div class="directions" id="directions-container">
         <h4>Directions</h4>
         <ol>
-          <li>Step 1</li>
-          <li>Step 2</li>
-          <li>Step 3</li>
+          <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</li>
         </ol>
       </div>
     </div>
   </div>
+  <div class="recipe-notes">
+      <div class="notes-container">
+        <h4>Notes</h4>
+          <ol>
+            <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr Lorem ipsum dolor sit amet, consetetur sadipscing elitr Lorem ipsum dolor sit amet, consetetur sadipscing elitr Lorem ipsum dolor sit amet, consetetur sadipscing elitrLorem ipsum dolor sit amet</li>
+          </ol>
+      </div>
+  </div>
 </div>
+
+
+
+
+<%# script to adjust container height depending on text length
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  var recipeCardContent = document.querySelector(".recipe-card-content");
+  var recipeCardContainer = document.querySelector(".recipe-card-container");
+  var notesContainer = document.querySelector(".notes-container");
+  var notesContent = document.querySelector(".notes-content");
+
+  adjustContainerHeight(recipeCardContent, recipeCardContainer);
+  adjustContainerHeight(notesContent, notesContainer);
+
+  window.addEventListener("resize", function() {
+    adjustContainerHeight(recipeCardContent, recipeCardContainer);
+    adjustContainerHeight(notesContent, notesContainer);
+  });
+
+  function adjustContainerHeight(content, container) {
+    var extraHeight = 15; // Additional 15 pixels
+
+    var contentHeight = content.offsetHeight;
+    container.style.height = contentHeight + extraHeight + "px";
+  }
+});
+
+</script> %>
