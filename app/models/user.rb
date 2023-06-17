@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :recipes
   has_many :events
+
+  validates :nickname, uniqueness: true
+  validates :nickname, :first_name, :last_name, :address, :date_of_birth, presence: true
+
 end
