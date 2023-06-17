@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :events
 
   validates :nickname, uniqueness: true
-  validates :nickname, :first_name, :last_name, :address, presence: true
+  validates :nickname, :first_name, :last_name, :location, presence: true
   validate :date_of_birth_greater_than_18_years
 
   private

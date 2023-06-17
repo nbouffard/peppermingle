@@ -1,17 +1,16 @@
 class RecipePolicy < ApplicationPolicy
   class Scope < Scope
-    class RecipePolicy < ApplicationPolicy
-      def show?
-        true
-      end
+  end
 
-      def create?
-        user.present?
-      end
+  def show?
+    true
+  end
 
-      def new?
-        create?
-      end
-    end
+  def create?
+    user.present?
+  end
+
+  def new?
+    create?
   end
 end
