@@ -29,6 +29,18 @@
   object-fit: cover;
 }
 
+.recipe-top-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.recipe-bottom-container {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+}
 
 .recipe-card-content {
   position: relative;
@@ -40,7 +52,7 @@
   margin-top: 80px;
 }
 
-// Torn Paper Edge
+/* Torn Paper Edge */
 
 .recipe-card-content::before {
   content: "";
@@ -55,11 +67,10 @@
   filter: drop-shadow(0px -1px 0px rgba(0, 0, 0, 0.1));
 }
 
-
-// Recipe Title
+/* Recipe Title */
 
 .recipe-title-container {
-  background: url(https://i.ibb.co/0XPGPYw/torn-paper-title.png) right;
+  background: url(https://i.ibb.co/gtxYp47/torn-paper-title.png) right;
   background-size: 100%;
   background-repeat: no-repeat;
   position: absolute;
@@ -86,5 +97,68 @@ h3 {
   -webkit-text-stroke: 0.5px #CA4E36;
 }
 
+/* Recipe Content */
 
-// Recipe Content
+.recipe-reviews {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.stars-container {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 50px;
+}
+
+.recipe-icons {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.ingredients {
+  font-family: 'Lato', sans-serif;
+  flex: 1;
+  padding: 20px;
+}
+
+.directions {
+  font-family: 'Lato', sans-serif;
+  flex: 1;
+  padding: 20px;
+}
+
+h4 {
+  font-family: 'Aleo', serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.fa-utensils {
+  margin-right: 5px;
+}
+
+.fa-clock {
+  margin-right: 5px;
+}
+
+.fa-star {
+  padding: 3px;
+  font-size: 20px;
+}
