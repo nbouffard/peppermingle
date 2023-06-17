@@ -27,11 +27,14 @@
     <div class="recipe-bottom-container">
       <div class="ingredients" id="ingredients-container">
         <h4>Ingredients</h4>
-        <ul>
-          <li>500g strawberries, chopped</li>
-          <li>375g butter, softened</li>
-          <li>1 1/2 cups (225g) plain flour</li>
-        </ul>
+          <% unless @recipe.ingredients.blank? %>
+            <ul>
+              <% ingredients = @recipe.ingredients.split(/,\s*/).map(&:strip)
+              ingredients.each do |ingredient| %>
+                <li><%= ingredient %></li>
+              <% end %>
+            </ul>
+          <% end %>
       </div>
        <hr class="recipe-separator">
       <div class="directions" id="directions-container">

@@ -1,11 +1,27 @@
-<h1><%= @recipe.title %></h1>
+<div class="recipe-page">
+  <div class="recipe-container">
+    <div class="container">
+      <div class="back-button">
+      <%= link_to "Back", :back, class: "button small-button" %>
+      </div>
+      <div class="recipe-column-left">
+        <h1><%= @recipe.title %></h1>
+        <%= image_tag("https://images.unsplash.com/photo-1611625877932-6155840177a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80", alt: "Recipe Photo", class: "recipe-img") %>
+        <p><strong><%= @recipe.description %></p>
 
-<p><strong>Description:</strong> <%= @recipe.description %></p>
-<p><strong>Ingredients:</strong> <%= @recipe.ingredients %></p>
-<p><strong>Directions:</strong> <%= @recipe.directions %></p>
-<p><strong>Category:</strong> <%= @recipe.category %></p>
-<p><strong>Cuisine:</strong> <%= @recipe.cuisine %></p>
-<p><strong>Prep Time:</strong> <%= @recipe.prep_time %> minutes</p>
-<p><strong>Total Time:</strong> <%= @recipe.total_time %> minutes</p>
-<p><strong>Difficulty:</strong> <%= @recipe.difficulty %></p>
-<p><strong>Servings:</strong> <%= @recipe.servings %></p>
+        <%= render partial: 'shared/recipe_card' %>
+      </div>
+      <div class="recipe-column-right">
+        <!-- Content for the second column goes here -->
+      </div>
+
+
+            <p><strong>Directions:</strong> <%= @recipe.directions %></p>
+            <p><strong>Category:</strong> <%= @recipe.category %></p>
+            <p><strong>Cuisine:</strong> <%= @recipe.cuisine %></p>
+            <p><strong>Prep Time:</strong> <%= @recipe.prep_time %> minutes</p>
+            <p><strong>Total Time:</strong> <%= @recipe.total_time %> minutes</p>
+            <p><strong>Difficulty:</strong> <%= @recipe.difficulty %></p>
+            <p><strong>Servings:</strong> <%= @recipe.servings %></p>
+  </div>
+</div>

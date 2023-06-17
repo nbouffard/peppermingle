@@ -1,0 +1,57 @@
+/* Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+// General Styling
+
+.recipe-page {
+background-color: #F9F5F2;
+}
+
+.recipe-page h1 {
+  font-family: 'Aleo', serif;
+  color: #061326;
+}
+
+.recipe-page p {
+  font-family: 'Lato', sans-serif;
+  color: #567275;
+  font-weight: 300;
+}
+
+.back-button {
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
+.recipe-container {
+
+}
+
+.recipe-column-left {
+  width: 70%;
+}
+
+.recipe-column-right{
+  width: 30%;
+}
+
+.recipe-img {
+  object-fit: cover;
+  object-position: 50% 50%;
+  width: 100%;
+  max-width: 750px;
+  height: 100%;
+  max-height: 400px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.recipe-container {
+  margin-left: 140px;
+  margin-right: 140px;
+}
