@@ -13,9 +13,9 @@
     <%= f.input :last_name,
                 required: true,
                 input_html: { autocomplete: "last_name" }%>
-    <%= f.input :address,
+    <%= f.input :location,
                 required: true,
-                input_html: { autocomplete: "address" }%>
+                input_html: { autocomplete: "location" }%>
     <%= f.input :date_of_birth,
                 start_year: Date.today.year - 100,
                 end_year: Date.today.year,
