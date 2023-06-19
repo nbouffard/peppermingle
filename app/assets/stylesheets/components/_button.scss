@@ -13,7 +13,9 @@
   padding: 10px;
   text-align: center;
   font: 16px "Oswald", sans-serif;
-  cursor: pointer;
+  cursor: default;
+  text-decoration: none;
+  color: inherit;
   z-index: 1;
   transition: background-color 0.3s;
 }
