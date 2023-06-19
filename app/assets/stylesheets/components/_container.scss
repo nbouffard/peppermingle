@@ -50,10 +50,12 @@ body {
   justify-content: space-between;
 }
 
-// .recipe-cards-container {
-//   margin: 20px;
-//   background-color: cadetblue;
-// }
+.recipe-cards-container {
+ .title{
+  color: #567275;
+  font-size: 40px;
+ }
+}
 
 .cards-flex, .outer-cards-flex {
   display: flex;
@@ -77,6 +79,6 @@ body {
 
 .profile-show-container {
   // background-color: yellow;
-  width: 90%;
+  width: 75%;
   margin: 0 auto;
 }
