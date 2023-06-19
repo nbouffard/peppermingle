@@ -1,5 +1,5 @@
 body {
-  background-color: burlywood;
+  background-color: #F9F5F2;
 }
 
 .show-container-flex {
@@ -13,9 +13,28 @@ body {
   flex-direction: column;
   margin: 20px;
   // background-color: red;
-  border-right: 5px solid black;
+  border-right: 1px solid #C78D81;
   width: 409px;
   padding: 20px;
+  P, h3 {
+    color: #567275;
+  }
+  .location, h5 {
+    color: #8EAEAF;
+  }
+  p {
+    font-size: 24px;
+  }
+  h5 {
+    font-size: 32px;
+  }
+  h3 {
+    font-size: 40px;
+  }
+  i {
+    font-size: 30px;
+    color: #E7B2AF;
+  }
 }
 
 .name-location-info-container {
@@ -53,4 +72,11 @@ body {
 
 .back-btn-container {
   margin-top: 40px;
+  margin-left: 40px;
+}
+
+.profile-show-container {
+  // background-color: yellow;
+  width: 90%;
+  margin: 0 auto;
 }

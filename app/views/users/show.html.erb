@@ -1,4 +1,4 @@
-<div class="container">
+<div class="profile-show-container">
   <div class="back-btn-container">
     <%= button_to "BACK" %>
   </div>
@@ -9,7 +9,7 @@
       <div class="name-location-info-container">
         <h3><%= @user.nickname %></h3>
         <h5><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h5>
-        <p><i class="fa-solid fa-location-dot"></i> <%= @user.address.capitalize %></p>
+        <p class="location"><i class="fa-solid fa-location-dot"></i> <%= @user.address.capitalize %></p>
       </div>
       <div class="user-bio-container">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
