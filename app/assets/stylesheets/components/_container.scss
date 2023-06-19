@@ -1,0 +1,56 @@
+body {
+  background-color: burlywood;
+}
+
+.show-container-flex {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.user-info-flex-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  // background-color: red;
+  border-right: 5px solid black;
+  width: 409px;
+  padding: 20px;
+}
+
+.name-location-info-container {
+  margin-bottom: 40px;
+  // background-color: aqua;
+  h3, h5, p {
+    text-align: center;
+  }
+}
+
+.cards-flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+// .recipe-cards-container {
+//   margin: 20px;
+//   background-color: cadetblue;
+// }
+
+.cards-flex, .outer-cards-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-bio-container {
+  // background-color: yellow;
+  // width: 359px;
+  width: 100%;
+}
+
+.outer-cards-flex {
+  margin-top: 50px;
+}
+
+.back-btn-container {
+  margin-top: 40px;
+}
