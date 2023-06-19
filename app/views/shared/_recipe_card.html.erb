@@ -1,0 +1,53 @@
+<%= javascript_tag '/app/javascript/resize_recipe_card.js' %>
+
+<div class="recipe-card-container">
+  <div class="recipe-card-img">
+    <%= image_tag("https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", alt: "Recipe Photo", class: "recipe-card-img") %>
+    <div class="recipe-title-container">
+      <h3 class="recipe-title">Recipe Title</h3>
+    </div>
+  </div>
+  <div class="recipe-card-content">
+    <div class="recipe-top-container">
+      <div class="stars-container">
+        <div class="recipe-reviews">
+          <i class="fa-solid fa-star" style="color: #F1B150;"></i>
+          <i class="fa-solid fa-star" style="color: #F1B150;"></i>
+          <i class="fa-solid fa-star" style="color: #F1B150;"></i>
+          <i class="fa-solid fa-star" style="color: #F1B150;"></i>
+          <i class="fa-solid fa-star" style="color: #F1B150;"></i>
+        </div>
+      </div>
+      <div class="recipe-icons">
+        <p><i class="fas fa-utensils" style="color: #567275;"></i>Servings: 8</p>
+        <p><i class="fa-regular fa-clock" style="color: #567275;"></i>Prep Time: 30 mins</p>
+        <p><i class="fa-regular fa-clock" style="color: #567275;"></i>Total Time: 55 mins</p>
+      </div>
+    </div>
+    <div class="recipe-bottom-container">
+      <div class="ingredients" id="ingredients-container">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>500g strawberries, chopped</li>
+          <li>375g butter, softened</li>
+          <li>1 1/2 cups (225g) plain flour</li>
+        </ul>
+      </div>
+       <hr class="recipe-separator">
+      <div class="directions" id="directions-container">
+        <h4>Directions</h4>
+        <ol>
+          <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="recipe-notes">
+      <div class="notes-container">
+        <h4>Notes</h4>
+          <ol>
+            <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consetetur sadipscing elitr Lorem ipsum dolor sit amet</li>
+          </ol>
+      </div>
+  </div>
+</div>
