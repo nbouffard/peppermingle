@@ -3,6 +3,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    authorize @event
   end
 
   def create
@@ -21,6 +22,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :date, :paid?)
+    params.require(:event).permit(:title, :description, :date, :paid, :recipe_id)
   end
 end

@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :events
 
-  validates :nickname, :first_name, :last_name, :address, :date_of_birth, :email, :password, presence: true
+  # validates :nickname, :first_name, :last_name, :address, :date_of_birth, presence: true
 end

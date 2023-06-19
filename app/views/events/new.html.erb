@@ -2,7 +2,8 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :date %>
-  <%= f.input :paid? %>
+  <%= f.input :paid %>
+  <%= f.association :recipe %>
 
   <%= f.button :submit, 'Create Event' %>
 <% end %>
