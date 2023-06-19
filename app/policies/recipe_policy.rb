@@ -1,12 +1,9 @@
 class RecipePolicy < ApplicationPolicy
   class Scope < Scope
-    def resolve
-      scope.all
-    end
   end
 
   def update?
-    user.present? && record.user_id == user.id
+    user&.id == record.user_id
   end
 
   def edit?
