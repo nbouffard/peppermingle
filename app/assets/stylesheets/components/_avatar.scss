@@ -6,9 +6,13 @@
   height: 359px;
   width: 359px;
   border-radius: 50%;
-  background-color: #F1E5E5;
+  object-fit: cover;
+
   margin: 10px;
   margin-bottom: 40px;
+  .default-pic {
+    background-color: #F1E5E5;
+  }
 }
 .avatar-bordered {
   width: 40px;
