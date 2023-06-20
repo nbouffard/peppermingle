@@ -1,0 +1,13 @@
+<div class="container">
+  <% if @recipes.empty? %>
+    <h1>Recipes</h1>
+    <hr>
+    <p>No recipes yet...</p>
+  <% else %>
+    <% @recipes.each do |recipe| %>
+      <%= recipe.title %>
+      <%= recipe.prep_time %>
+      <%= recipe.total_time %>
+    <% end %>
+  <% end %>
+</div>
