@@ -5,6 +5,11 @@ class EventPolicy < ApplicationPolicy
     #   scope.all
     # end
   end
+
+  def show?
+    true
+  end
+
   def create?
     true
   end
