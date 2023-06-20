@@ -1,5 +1,11 @@
 class RecipePolicy < ApplicationPolicy
   class Scope < Scope
+
+    # NOTE: Be explicit about which records you allow access to!
+    def resolve
+      scope.all
+    end
+
   end
 
   def show?
@@ -12,5 +18,6 @@ class RecipePolicy < ApplicationPolicy
 
   def new?
     create?
+
   end
 end
