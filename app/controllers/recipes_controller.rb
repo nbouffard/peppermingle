@@ -34,7 +34,8 @@ class RecipesController < ApplicationController
       :prep_time,
       :total_time,
       :servings,
-      :difficulty
+      :difficulty,
+      :description
     )
   end
 end
