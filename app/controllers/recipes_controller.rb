@@ -2,6 +2,10 @@ class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   before_action :set_recipe, only: %i[edit update]
 
+  def index
+    @recipes = policy_scope(Recipe)
+  end
+
   def new
     @recipe = Recipe.new
     authorize @recipe
@@ -45,6 +49,7 @@ class RecipesController < ApplicationController
 
 
   def recipe_params
-  params.require(:recipe).permit(:title, :description, :ingredients, :category, :cuisine, :prep_time, :total_time, :difficulty, :servings, :directions)
+    params.require(:recipe).permit(:title, :description, :ingredients, :category, :cuisine, :prep_time, :total_time, :difficulty, :servings, :directions)
   end
+
 end

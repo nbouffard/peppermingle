@@ -2,8 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :recipes, only: %i[new show create edit update]
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+
+  resources :recipes, only: %i[index new show create edit update]
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :users, only: %i[show update]
+
+  resources :events, only: %i[new show create]
+
+
 end

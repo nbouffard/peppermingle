@@ -17,4 +17,5 @@ class User < ApplicationRecord
       errors.add(:date_of_birth, 'must be at least 18 years ago')
     end
   end
+
 end
