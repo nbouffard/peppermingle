@@ -7,7 +7,6 @@
   width: 359px;
   border-radius: 50%;
   object-fit: cover;
-
   margin: 10px;
   margin-bottom: 40px;
   .default-pic {
@@ -32,5 +31,8 @@
     height: 250px;
     width: 250px;
     margin: 0;
+    .default-pic{
+      background-color: #F1E5E5;
+    }
   }
 }
