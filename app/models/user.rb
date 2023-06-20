@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :events
 
+  has_one_attached :photo
+
   validates :nickname, uniqueness: true
   validates :nickname, :first_name, :last_name, :location, presence: true
   validate :date_of_birth_greater_than_18_years
