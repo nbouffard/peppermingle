@@ -1,1 +1,25 @@
-<h2>Waiting on the cards & events#new </h2>
+<div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/culinary_herbs-background.png')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2">
+      </div>
+      <div class="col-lg-10">
+        <div class="card-grid">
+          <% @events.each do |event| %>
+            <div class="card-trip">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+              <div class="card-trip-infos">
+                <div>
+                    <h2><%= event.title %></h2>
+                    <p><i class="fa-sharp fa-solid fa-thumbtack" style="color: #f71b02;"></i> Recipe: <%= event.recipe.title%></p>
+                </div>
+                <%= link_to "Sign up", "#", class: "button card-button"; %>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
