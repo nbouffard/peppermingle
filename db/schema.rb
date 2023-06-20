@@ -84,7 +84,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_18_000446) do
     t.string "nickname"
     t.string "first_name"
     t.string "last_name"
-
     t.string "location"
     t.date "date_of_birth"
     t.text "bio"

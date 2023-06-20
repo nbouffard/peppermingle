@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :recipes, only: %i[index new show create edit update]
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :users, only: %i[show edit update]
 
   resources :events, only: %i[new show create]
-
 
 end
