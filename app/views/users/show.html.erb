@@ -27,8 +27,8 @@
               <h3>Featured Recipes by <%= @user.nickname.capitalize %></h3>
             </div>
             <div class="cards-flex-container">
-              <p>dummy card 1</p>
-              <p>dummy card 2</p>
+              <%= render 'shared/card_small' %>
+              <%= render 'shared/card_small' %>
             </div>
           </div>
         </div>
@@ -40,8 +40,8 @@
               <h3>Favorite Recipes</h3>
             </div>
             <div class="cards-flex-container">
-              <p>dummy card 1</p>
-              <p>dummy card 2</p>
+              <%= render 'shared/card_small' %>
+              <%= render 'shared/card_small' %>
             </div>
           </div>
         </div>
