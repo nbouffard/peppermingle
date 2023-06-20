@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.create(user_params)
+    if @user.update(user_params)
       redirect_to user_path(@user)
     else
       render :show, status: :unproccessable_entity
@@ -21,5 +21,9 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
     authorize @user
+  end
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :bio, :specialty, :photo, :nickname)
   end
 end

@@ -5,11 +5,14 @@
   <div class="show-container-flex">
     <div class="user-info-flex-container">
       <div class="avatar-large">
+      <% if @user.photo.key %>
+        <%= cl_image_tag @user.photo.key %>
+      <% end %>
       </div>
       <div class="name-location-info-container">
         <h3><%= @user.nickname %></h3>
         <h5><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h5>
-        <p class="location"><i class="fa-solid fa-location-dot"></i> <%= @user.address.capitalize %></p>
+        <p class="location"><i class="fa-solid fa-location-dot"></i> <%= @user.location.capitalize %></p>
       </div>
       <div class="user-bio-container">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
