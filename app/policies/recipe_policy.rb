@@ -12,4 +12,16 @@ class RecipePolicy < ApplicationPolicy
   def edit?
     update?
   end
+
+  def show?
+    true
+  end
+
+  def create?
+    user.present?
+  end
+
+  def new?
+    create?
+  end
 end
