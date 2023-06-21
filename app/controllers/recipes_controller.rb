@@ -3,7 +3,11 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[edit update]
 
   def index
-    @recipes = policy_scope(Recipe)
+    if params[:query].present?
+      @recipes = Recipe.filter_recipes(params[:query])
+    else
+      @recipes = policy_scope(Recipe)
+    end
   end
 
   def new
