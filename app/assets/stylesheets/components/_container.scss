@@ -84,10 +84,18 @@ body {
   margin: 0 auto;
 }
 
+.index-container {
+  height: 100%;
+  width: 70%;
+  margin: 0 auto;
+}
+
 .filter-container {
   background-color: yellow;
   border-right: 1px solid black;
   width: 25%;
+  height: 100%;
+
 }
 
 .index-search-flex-container{
