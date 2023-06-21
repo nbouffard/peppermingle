@@ -1,22 +1,27 @@
 <div class="profile-show-container">
   <div class="back-btn-container">
-    <%= button_to "BACK" %>
+    <%= link_to "BACK", root_path, class: 'button small-button' %>
   </div>
   <div class="show-container-flex">
     <div class="user-info-flex-container">
-      <div class="avatar-large">
+      <% if @user.photo.key %>
+        <div>
+        <%= cl_image_tag @user.photo.key, class: 'avatar-large' %>
+      <% else %>
+        <div class="default-pic">
+      <% end %>
       </div>
       <div class="name-location-info-container">
         <h3><%= @user.nickname %></h3>
         <h5><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h5>
-        <p class="location"><i class="fa-solid fa-location-dot"></i> <%= @user.address.capitalize %></p>
+        <p class="location"><i class="fa-solid fa-location-dot"></i> <%= @user.location.capitalize %></p>
       </div>
       <div class="user-bio-container">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <% if @user.bio.nil? %>
+        <p>No profile description yet...</p>
+      <% else %>
+        <p><%= @user.bio %></p>
+      <% end %>
       </div>
     </div>
     <div class="outer-cards-flex">
@@ -27,8 +32,8 @@
               <h3>Featured Recipes by <%= @user.nickname.capitalize %></h3>
             </div>
             <div class="cards-flex-container">
-              <p>dummy card 1</p>
-              <p>dummy card 2</p>
+              <%= render 'shared/card_small' %>
+              <%= render 'shared/card_small' %>
             </div>
           </div>
         </div>
@@ -40,8 +45,8 @@
               <h3>Favorite Recipes</h3>
             </div>
             <div class="cards-flex-container">
-              <p>dummy card 1</p>
-              <p>dummy card 2</p>
+              <%= render 'shared/card_small' %>
+              <%= render 'shared/card_small' %>
             </div>
           </div>
         </div>
