@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_recipe, only: %i[edit update]
+  before_action :set_recipe, only: %i[edit update destroy]
 
   def index
     @recipes = policy_scope(Recipe)
@@ -40,6 +40,11 @@ class RecipesController < ApplicationController
     end
   end
 
+  def destroy
+    authorize @recipe
+    @recipe.destroy
+    redirect_to recipes_path, notice: 'Recipe was successfully deleted.'
+  end
 
   private
 
@@ -47,9 +52,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
-
   def recipe_params
     params.require(:recipe).permit(:title, :description, :ingredients, :category, :cuisine, :prep_time, :total_time, :difficulty, :servings, :directions)
   end
-
 end
