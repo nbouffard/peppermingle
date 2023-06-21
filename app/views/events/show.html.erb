@@ -4,3 +4,4 @@
 <p><strong>Paid?:</strong> <%= @event.paid? ? 'Yes' : 'No' %></p>
 
 <p><strong>Created by:</strong> <%= @event.user.nickname %></p>
+<%= button_to "Destroy", @event, method: :delete if policy(@event).destroy? %>
