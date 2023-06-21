@@ -11,3 +11,12 @@
 @import "components/index";
 @import "pages/index";
 @import "components/button";
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
