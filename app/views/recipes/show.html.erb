@@ -11,5 +11,6 @@
 <p><strong>Servings:</strong> <%= @recipe.servings %></p>
 
 
-
-<%= button_to "Delete Recipe", recipe_path(@recipe), method: :delete, data: { confirm: "Are you sure you want to delete this recipe?" }, class: "button delete-button" %>
+<% if current_user == @recipe.user %>
+  <%= button_to "Delete Recipe", recipe_path(@recipe), method: :delete, data: { confirm: "Are you sure you want to delete this recipe?" }, class: "button delete-button" %>
+<% end %>
