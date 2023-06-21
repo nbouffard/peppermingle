@@ -10,6 +10,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :users, only: %i[show edit update]
 
-  resources :events, only: %i[new show create]
-
+  resources :events, only: %i[new show create destroy]
 end

@@ -1,9 +1,9 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: :show
+  before_action :authenticate_user!
+  before_action :set_event, only: %i[show destroy]
 
   def show
-    @event = Event.find(params[:id])
     authorize @event
   end
 
@@ -23,6 +23,20 @@ class EventsController < ApplicationController
     else
       render :new, alert: 'Event cannot be created!'
     end
+  end
+
+  def destroy
+    authorize @event
+
+    if @event.destroy
+      redirect_to events_path, alert: 'Event successfully deleted!'
+    else
+      redirect_to event_path(@event), alert: 'Event cannot be deleted!'
+    end
+  end
+
+  def set_event
+    @event = Event.find(params[:id])
   end
 
   private
