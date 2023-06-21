@@ -4,7 +4,7 @@
   <div class="season">
     <h4>Season</h4>
     <%= check_box_tag(:query, :autumn) %>
-    <%= label_tag(:query, 'Autumn') %>
+    <%= label_tag(:season, 'Autumn') %>
     <%= check_box_tag(:query, :winter) %>
     <%= label_tag(:season, 'Winter') %>
     <%= check_box_tag(:query, :spring) %>
@@ -48,7 +48,7 @@
   <%= submit_tag('filter') %>
   <hr>
 <% end %>
-  <% if @recipes.empty? %>
+  <% if @recipes.nil? %>
     <h1>Recipes</h1>
     <hr>
     <p>No recipes yet...</p>
