@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  before_action :get_event, only: [:edit, :update]
+  before_action :authenticate_user!
+  before_action :get_event, only: %i[edit update show destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
@@ -17,7 +18,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
     authorize @event
   end
 
@@ -36,6 +36,16 @@ class EventsController < ApplicationController
       redirect_to event_path(@event), alert: 'Event successfully created!'
     else
       render :new, alert: 'Event cannot be created!'
+    end
+  end
+
+  def destroy
+    authorize @event
+
+    if @event.destroy
+      redirect_to events_path, alert: 'Event successfully deleted!' # change the route to index when there is an index
+    else
+      redirect_to event_path(@event), alert: 'Event cannot be deleted!'
     end
   end
 
