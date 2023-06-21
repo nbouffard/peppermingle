@@ -7,7 +7,9 @@
         <%= f.input :description %>
         <%= f.input :ingredients %>
         <%= f.input :directions %>
-        <%= f.input :category %>
+        <%= f.input :meal_type, collection: Recipe::MEAL_TYPES %>
+        <%= f.input :season, collection: Recipe::SEASONS %>
+        <%= f.input :dietary_requirements, collection: Recipe::DIET %>
         <%= f.input :cuisine %>
         <%= f.input :prep_time, placeholder: "Time in minutes"  %>
         <%= f.input :total_time %>

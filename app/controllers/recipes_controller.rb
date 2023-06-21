@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
 
   def index
     if params[:query].present?
-      @recipes = Recipe.filter_recipes(params[:query])
+      @recipes = policy_scope(Recipe).filter_recipes(params[:query])
     else
       @recipes = policy_scope(Recipe)
     end
@@ -44,16 +44,15 @@ class RecipesController < ApplicationController
     end
   end
 
-
   private
 
   def set_recipe
     @recipe = Recipe.find(params[:id])
   end
 
-
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :ingredients, :category, :cuisine, :prep_time, :total_time, :difficulty, :servings, :directions)
+    params.require(:recipe).permit(:title, :description, :ingredients, :meal_type,
+                                   :season, :dietary_requirements, :cuisine, :prep_time,
+                                   :total_time, :difficulty, :servings, :directions)
   end
-
 end
