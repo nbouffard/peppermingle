@@ -12,7 +12,7 @@ class Recipe < ApplicationRecord
   validates :dietary_requirements, inclusion: { in: DIET }
 
   include PgSearch::Model
-  Pg_search_scope :filter_recipes,
+  pg_search_scope :filter_recipes,
                   against: %i[meal_type season dietary_requirements],
                   using: {
                     tsearch: { prefix: true }
