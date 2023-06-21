@@ -43,7 +43,7 @@ class EventsController < ApplicationController
     authorize @event
 
     if @event.destroy
-      redirect_to event_path, alert: 'Event successfully deleted!' # change the route to index when there is an index
+      redirect_to events_path, alert: 'Event successfully deleted!' # change the route to index when there is an index
     else
       redirect_to event_path(@event), alert: 'Event cannot be deleted!'
     end
