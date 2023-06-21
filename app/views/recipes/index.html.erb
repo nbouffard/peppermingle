@@ -1,12 +1,12 @@
 <div class="container">
 <%= form_tag recipes_path, method: :get do %>
   <%= text_field_tag :query %>
-  <%# <%= label_tag(:season, 'Season',) %>
-  <%# <%= select_tag("query", options_for_select(Recipe::SEASONS), include_blank: true) %>
-  <%# <%= label_tag(:meal_type, 'Meal Type') %>
-  <%# <%= select_tag("query", options_for_select(Recipe::MEAL_TYPES), include_blank: true) %>
-  <%# <%= label_tag(:dietary_requirements, 'Dietary Requirements') %>
-  <%# <%= select_tag("query", options_for_select(Recipe::DIET), include_blank: true) %>
+   <%= label_tag(:season, 'Season',) %>
+   <%= select_tag("query", options_for_select(Recipe::SEASONS), include_blank: true) %>
+  <%= label_tag(:meal_type, 'Meal Type') %>
+  <%= select_tag("query", options_for_select(Recipe::MEAL_TYPES), include_blank: true) %>
+  <%= label_tag(:dietary_requirements, 'Dietary Requirements') %>
+  <%= select_tag("query", options_for_select(Recipe::DIET), include_blank: true) %>
   <%= submit_tag("filter") %>
  <% end %>
   <% if @recipes.empty? %>
