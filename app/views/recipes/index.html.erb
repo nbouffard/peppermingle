@@ -1,14 +1,34 @@
 <div class="container">
-<%= form_tag recipes_path, method: :get do %>
-  <%= text_field_tag :query %>
-   <%= label_tag(:season, 'Season',) %>
-   <%= select_tag("query", options_for_select(Recipe::SEASONS), include_blank: true) %>
-  <%= label_tag(:meal_type, 'Meal Type') %>
-  <%= select_tag("query", options_for_select(Recipe::MEAL_TYPES), include_blank: true) %>
-  <%= label_tag(:dietary_requirements, 'Dietary Requirements') %>
-  <%= select_tag("query", options_for_select(Recipe::DIET), include_blank: true) %>
-  <%= submit_tag("filter") %>
- <% end %>
+
+ <%= form_tag recipes_path, method: :get do %>
+  <div class="season">
+    <h4>Season</h4>
+    <%= check_box_tag(:query, :autumn) %>
+    <%= label_tag(:query, 'Autumn') %>
+    <%= check_box_tag(:query, :winter) %>
+    <%= label_tag(:season, 'Winter') %>
+    <%= check_box_tag(:query, :spring) %>
+    <%= label_tag(:season, 'Spring') %>
+    <%= check_box_tag(:query, :summer) %>
+    <%= label_tag(:season, 'Summer') %>
+    <%= check_box_tag(:query, :christmas) %>
+    <%= label_tag(:season, 'Christmas') %>
+  </div>
+  <div class="meal_type">
+    <h4>Meal type</h4>
+    <%= check_box_tag(:query, :breakfast) %>
+    <%= label_tag(:meal_type, 'Breakfast') %>
+    <%= check_box_tag(:query, :lunch) %>
+    <%= label_tag(:meal_type, 'Lunch') %>
+    <%= check_box_tag(:query, :dinner) %>
+    <%= label_tag(:meal_type, 'Dinner') %>
+    <%= check_box_tag(:query, :snack) %>
+    <%= label_tag(:meal_type, 'Snack') %>
+    <%= check_box_tag(:query, :appetizers) %>
+    <%= label_tag(:meal_type, 'Appetizers') %>
+  </div>
+  <%= submit_tag('filter') %>
+<% end %>
   <% if @recipes.empty? %>
     <h1>Recipes</h1>
     <hr>
