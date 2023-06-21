@@ -51,3 +51,18 @@
   width: 318px;
   height: 112px;
 }
+
+.card-button {
+  width: 50px;
+  height: 20px;
+  font-size: 10px;
+}
+
+.card-button::before {
+  transform: translate(-2px, -2px); /* Adjust the translation values as needed */
+}
+
+.card-button:hover::before {
+  top: 1.75px;
+  left: 1.75px;
+}

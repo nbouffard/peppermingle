@@ -1,7 +1,21 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :show
   before_action :authenticate_user!
-  before_action :set_event, only: %i[show destroy]
+  before_action :get_event, only: %i[edit update show destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
+
+  def index
+    @events = policy_scope(Event)
+  end
+
+  def edit
+    authorize @event
+  end
+
+  def update
+    authorize @event
+    @event.update(event_params)
+    redirect_to event_path(@event)
+  end
 
   def show
     authorize @event
@@ -35,13 +49,13 @@ class EventsController < ApplicationController
     end
   end
 
-  def set_event
-    @event = Event.find(params[:id])
-  end
-
   private
 
   def event_params
     params.require(:event).permit(:title, :description, :date, :paid, :recipe_id)
+  end
+
+  def get_event
+    @event = Event.find(params[:id])
   end
 end
