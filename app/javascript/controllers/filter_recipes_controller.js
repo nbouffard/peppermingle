@@ -4,9 +4,9 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["form", "recipes", "input"];
   connect() {
-    console.log('hello')
-    console.log(this.formTarget);
-    console.log(this.recipesTarget);
+    // console.log('hello')
+    // console.log(this.formTarget);
+    // console.log(this.recipesTarget);
   }
 
   update() {
