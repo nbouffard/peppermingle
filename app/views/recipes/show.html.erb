@@ -1,11 +1,19 @@
-<h1><%= @recipe.title %></h1>
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1><%= @recipe.title %></h1>
 
-<p><strong>Description:</strong> <%= @recipe.description %></p>
-<p><strong>Ingredients:</strong> <%= @recipe.ingredients %></p>
-<p><strong>Directions:</strong> <%= @recipe.directions %></p>
-<p><strong>Category:</strong> <%= @recipe.category %></p>
-<p><strong>Cuisine:</strong> <%= @recipe.cuisine %></p>
-<p><strong>Prep Time:</strong> <%= @recipe.prep_time %> minutes</p>
-<p><strong>Total Time:</strong> <%= @recipe.total_time %> minutes</p>
-<p><strong>Difficulty:</strong> <%= @recipe.dificulty %></p>
-<p><strong>Servings:</strong> <%= @recipe.servings %></p>
+    <% if current_user == @recipe.user %>
+      <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <p><strong>Description:</strong> <%= @recipe.description %></p>
+  <p><strong>Ingredients:</strong> <%= @recipe.ingredients %></p>
+  <p><strong>Directions:</strong> <%= @recipe.directions %></p>
+  <p><strong>Category:</strong> <%= @recipe.category %></p>
+  <p><strong>Cuisine:</strong> <%= @recipe.cuisine %></p>
+  <p><strong>Prep Time:</strong> <%= @recipe.prep_time %> minutes</p>
+  <p><strong>Total Time:</strong> <%= @recipe.total_time %> minutes</p>
+  <p><strong>Difficulty:</strong> <%= @recipe.difficulty %></p>
+  <p><strong>Servings:</strong> <%= @recipe.servings %></p>
+</div>
