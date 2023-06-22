@@ -4,7 +4,7 @@
 <p><strong>Ingredients:</strong></p>
 <ul>
   <% @recipe.ingredients.each do |ingredient| %>
-    <li><%= ingredient.amount %> - <%= ingredient.name %></li>
+    <li><%= ingredient.amount %> <%= ingredient.name %></li>
   <% end %>
 </ul>
 <p><strong>Directions:</strong> <%= @recipe.directions %></p>

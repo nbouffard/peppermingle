@@ -21,7 +21,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
     authorize @recipe
-    puts "Recipe parameters: #{recipe_params}"
     if @recipe.save
       redirect_to @recipe, notice: 'Recipe was successfully created.'
     else

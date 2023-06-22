@@ -1,19 +1,19 @@
 export function initializeRecipes() {
   document.addEventListener('DOMContentLoaded', function() {
     var addIngredientBtn = document.getElementById('add-ingredient');
-    var ingredientCount = 0;
+    var ingredientsPreview = document.getElementById('ingredients-preview');
+    var index = 0;
 
-    if (!addIngredientBtn) {
-      console.log("Could not find add ingredient button");
+    if (!addIngredientBtn || !ingredientsPreview) {
+      console.log("Could not find required elements");
       return;
     }
 
     addIngredientBtn.addEventListener('click', function() {
       var amountInput = document.querySelector('.amount-input');
       var nameInput = document.querySelector('.name-input');
-      var ingredientsPreview = document.getElementById('ingredients-preview');
 
-      if (!amountInput || !nameInput || !ingredientsPreview) {
+      if (!amountInput || !nameInput) {
         console.log("Could not find required elements");
         return;
       }
@@ -27,13 +27,13 @@ export function initializeRecipes() {
 
         var hiddenAmountInput = document.createElement('input');
         hiddenAmountInput.type = 'hidden';
-        hiddenAmountInput.name = `recipe[ingredients_attributes][${ingredientCount}][amount]`;
+        hiddenAmountInput.name = 'recipe[ingredients_attributes]['+index+'][amount]';
         hiddenAmountInput.value = amount;
         listItem.appendChild(hiddenAmountInput);
 
         var hiddenNameInput = document.createElement('input');
         hiddenNameInput.type = 'hidden';
-        hiddenNameInput.name = `recipe[ingredients_attributes][${ingredientCount}][name]`;
+        hiddenNameInput.name = 'recipe[ingredients_attributes]['+index+'][name]';
         hiddenNameInput.value = name;
         listItem.appendChild(hiddenNameInput);
 
@@ -41,7 +41,7 @@ export function initializeRecipes() {
         amountInput.value = '';
         nameInput.value = '';
 
-        ingredientCount++;
+        index++;
       } else {
         console.log("Amount or Name input is empty");
       }
