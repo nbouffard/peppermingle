@@ -28,16 +28,15 @@ background-color: #F9F5F2;
   margin-top: 10px;
 }
 
-.recipe-container {
-
+.recipe-column-left,
+.recipe-column-right {
+  flex-basis: 0 !important;
+  flex-grow: 1 !important;
+  padding: 1em !important;
 }
 
 .recipe-column-left {
-  width: 70%;
-}
-
-.recipe-column-right{
-  width: 30%;
+  flex-grow: 2 !important;
 }
 
 .recipe-img {
@@ -52,6 +51,17 @@ background-color: #F9F5F2;
 }
 
 .recipe-container {
-  margin-left: 140px;
-  margin-right: 140px;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+}
+
+.user-avatar {
+  background-image: url("https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1888&q=80");
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  object-position: center;
 }
