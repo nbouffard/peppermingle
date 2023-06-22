@@ -1,7 +1,12 @@
 <h1><%= @recipe.title %></h1>
 
 <p><strong>Description:</strong> <%= @recipe.description %></p>
-<p><strong>Ingredients:</strong> <%= @recipe.ingredients %></p>
+<p><strong>Ingredients:</strong></p>
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient.amount %> - <%= ingredient.name %></li>
+  <% end %>
+</ul>
 <p><strong>Directions:</strong> <%= @recipe.directions %></p>
 <p><strong>Category:</strong> <%= @recipe.category %></p>
 <p><strong>Cuisine:</strong> <%= @recipe.cuisine %></p>

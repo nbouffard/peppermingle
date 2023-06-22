@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
 
-  resources :recipes, only: %i[index new show create edit update]
+  resources :recipes, only: %i[index new show create]
   # Defines the root path route ("/")
   # root "articles#index"
   resources :users, only: %i[show edit update]
