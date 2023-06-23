@@ -27,8 +27,11 @@
   li {
     font-family: 'Lato', sans-serif;
     color: #567275;
-    list-style-type: none;
     margin-left: -30px;
+  }
+
+  ol {
+    list-style-type: none;
   }
 
   p {
@@ -74,6 +77,10 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   margin-top: 80px;
+}
+
+ul li {
+  list-style-type: circle;
 }
 
 /* Torn Paper Edge */
