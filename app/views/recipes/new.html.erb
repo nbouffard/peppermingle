@@ -63,6 +63,9 @@
       <%= f.input :difficulty, collection: ["Very Easy", "Easy", "Medium", "Difficult"], prompt: "Choose Difficulty", input_html: { class: "form-input-style" } %>
       <%= f.input :servings, placeholder: "e.g. 4", input_html: { class: "form-input-style" } %>
 
+      <p>Add Images:</p>
+      <%= f.input :images, as: :file, input_html: { multiple: true } %>
+
       <%= f.button :submit, "Create Recipe", class: "", style: "margin-top: 40px" %>
     <% end %>
   </div>
