@@ -87,7 +87,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_121738) do
     t.string "season"
     t.string "meal_type"
     t.string "dietary_requirements"
-    t.string "category"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 

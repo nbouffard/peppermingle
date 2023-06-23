@@ -5,7 +5,9 @@
   <%= form.input :title %>
   <%= form.input :description, as: :text %>
   <%= form.input :ingredients, as: :text %>
-  <%= form.input :category %>
+  <%= form.input :meal_type, collection: Recipe::MEAL_TYPES %>
+  <%= form.input :season, collection: Recipe::SEASONS %>
+  <%= form.input :dietary_requirements, collection: Recipe::DIET %>
   <%= form.input :cuisine %>
   <%= form.input :prep_time %>
   <%= form.input :total_time %>
