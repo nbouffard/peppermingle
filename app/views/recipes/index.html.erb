@@ -1,17 +1,15 @@
 <div class="index-container">
   <div class="index-search-flex-container" data-controller="filter-recipes">
     <div class="filter-container">
-      <%= form_tag recipes_path, method: :get, data: { filter_recipes_target: 'form', action: 'click->filter-recipes#update' }  do %>
+      <%= form_tag recipes_path, method: :get, data: { filter_recipes_target: 'form', action: 'submit->filter-recipes#send' }  do %>
         <div class="season">
           <h4>Season</h4>
-          <%# <div data-filter-recipes-target='input'> %>
           <% Recipe::SEASONS.each do |season| %>
             <div class="flex-form-container">
               <%= check_box_tag(:query, ":#{season}") %>
-              <%= label_tag(:season, "#{season.capitalize}", data: { filter_recipes_target: 'input' }) %>
+              <%= label_tag(:season, "#{season.capitalize}") %>
             </div>
           <% end %>
-          <%# </div> %>
         </div>
         <div class="meal_type">
           <h4>Meal type</h4>
