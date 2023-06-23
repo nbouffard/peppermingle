@@ -119,6 +119,8 @@ box-sizing: border-box;
   margin-bottom: 0;
 }
 
-a {
-  text-decoration: none;
+.small-card a {
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
