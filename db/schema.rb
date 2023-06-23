@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_21_144310) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_22_121738) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,11 +56,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_21_144310) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "ingredients", force: :cascade do |t|
+    t.string "amount"
+    t.string "name"
+    t.bigint "recipe_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
+  end
+
+  create_table "ingredients_recipes_join_table", id: false, force: :cascade do |t|
+    t.bigint "ingredient_id", null: false
+    t.bigint "recipe_id", null: false
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "title"
     t.text "description"
-    t.text "ingredients"
+    t.text "ingredients_attributes"
+    t.string "category"
     t.string "cuisine"
     t.integer "prep_time"
     t.integer "total_time"
@@ -82,9 +98,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_21_144310) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname"
     t.string "first_name"
     t.string "last_name"
+    t.string "nickname"
     t.string "location"
     t.date "date_of_birth"
     t.text "bio"
@@ -97,5 +113,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_21_144310) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "events", "recipes"
   add_foreign_key "events", "users"
+  add_foreign_key "ingredients", "recipes"
   add_foreign_key "recipes", "users"
 end

@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", function() {
   function adjustContainerHeight(content, container) {
     var extraHeight = 15; // Additional 15 pixels
 
-    var contentHeight = content.offsetHeight;
-    container.style.height = contentHeight + extraHeight + "px";
+    if (content && container) { // Check if both elements exist
+      var contentHeight = content.offsetHeight;
+      container.style.height = contentHeight + extraHeight + "px";
+    }
   }
 });
