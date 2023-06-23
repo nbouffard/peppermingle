@@ -9,9 +9,9 @@
       <%= render partial: 'shared/add_ingredients', locals: { f: f } %>
 
       <%= f.input :directions, placeholder: "What needs to be done, step by step?", input_html: { class: "form-input-style" } %>
-      <%# <%= f.input :meal_type, collection: Recipe::MEAL_TYPES, placeholder: "What meal type is your recipe?", input_html: { class: "form-input-style" } %>
-      <%# <%= f.input :season, collection: Recipe::SEASONS, placeholder: "Does this recipe belong to any season?", input_html: { class: "form-input-style" }%>
-      <%# <%= f.input :dietary_requirements, collection: Recipe::DIET, placeholder: "Are there any dietary requirements?", input_html: { class: "form-input-style" }%>
+      <%= f.input :meal_type, collection: Recipe::MEAL_TYPES, placeholder: "What meal type is your recipe?", input_html: { class: "form-input-style" } %>
+      <%= f.input :season, collection: Recipe::SEASONS, placeholder: "Does this recipe belong to any season?", input_html: { class: "form-input-style" }%>
+      <%= f.input :dietary_requirements, collection: Recipe::DIET, placeholder: "Are there any dietary requirements?", input_html: { class: "form-input-style" }%>
       <%= f.input :cuisine, placeholder: "e.g. Mexican", input_html: { class: "form-input-style" } %>
       <%= f.input :prep_time, placeholder: "Time for preparation in minutes", input_html: { class: "form-input-style" } %>
       <%= f.input :total_time, placeholder: "Total time needed in minutes", input_html: { class: "form-input-style" } %>
