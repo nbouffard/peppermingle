@@ -9,6 +9,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     authorize @recipe
+    @recipe.ingredients.build
   end
 
   def show
@@ -23,11 +24,13 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to @recipe, notice: 'Recipe was successfully created.'
     else
+      puts @recipe.errors.full_messages
       render :new
     end
   end
 
   def edit
+    @recipe.ingredients.build if @recipe.ingredients.empty?
     authorize @recipe
   end
 
@@ -49,7 +52,7 @@ class RecipesController < ApplicationController
 
 
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :ingredients, :category, :cuisine, :prep_time, :total_time, :difficulty, :servings, :directions)
+    params.require(:recipe).permit(:title, :description, :category, :cuisine, :difficulty, :directions, :prep_time, :total_time, :servings, ingredients_attributes: [:id, :amount, :name, :_destroy])
   end
 
 end
