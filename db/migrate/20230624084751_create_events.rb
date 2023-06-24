@@ -6,7 +6,7 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.string :title
       t.text :description
       t.date :date
-      t.boolean :paid, default: false
+      t.boolean :paid
 
       t.timestamps
     end
