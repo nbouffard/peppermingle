@@ -83,3 +83,43 @@ body {
   width: 75%;
   margin: 0 auto;
 }
+
+.index-container {
+  height: 100vh;
+  margin: 0 10px;
+}
+
+.filter-container {
+  position: fixed;
+  // background-color: yellow;
+  // border-right: 1px solid black;
+  width: 20%;
+  height: 100%;
+}
+
+.index-search-flex-container{
+  height: 100%;
+  width: 100%;
+
+  // background-color: burlywood;
+  display: flex;
+  overflow: scroll;
+}
+
+.flex-form-container {
+  display: flex;
+  label {
+    margin-left: 5px;
+  }
+}
+
+.meal_type, .dietary_restrictions {
+  margin-top: 10px;
+}
+
+.recipe-card-index-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+}

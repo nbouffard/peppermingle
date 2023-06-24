@@ -3,7 +3,11 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[edit update]
 
   def index
-    @recipes = policy_scope(Recipe)
+    if params[:query].present?
+      @recipes = policy_scope(Recipe).filter_recipes(params[:query])
+    else
+      @recipes = policy_scope(Recipe)
+    end
   end
 
   def new
@@ -43,16 +47,15 @@ class RecipesController < ApplicationController
     end
   end
 
-
   private
 
   def set_recipe
     @recipe = Recipe.find(params[:id])
   end
 
-
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :category, :cuisine, :difficulty, :directions, :prep_time, :total_time, :servings, ingredients_attributes: [:id, :amount, :name, :_destroy])
+    params.require(:recipe).permit(:title, :description, :meal_type,
+                                   :season, :dietary_requirements, :cuisine, :prep_time,
+                                   :total_time, :difficulty, :servings, :directions, ingredients_attributes: [:id, :amount, :name, :_destroy])
   end
-
 end

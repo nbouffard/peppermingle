@@ -56,7 +56,9 @@
       </div>
 
       <%= f.input :directions, placeholder: "What needs to be done, step by step?", input_html: { class: "form-input-style" } %>
-      <%= f.input :category, placeholder: "e.g. Vegan", input_html: { class: "form-input-style" } %>
+      <%= f.input :meal_type, collection: Recipe::MEAL_TYPES %>
+      <%= f.input :season, collection: Recipe::SEASONS %>
+      <%= f.input :dietary_requirements, collection: Recipe::DIET %>
       <%= f.input :cuisine, placeholder: "e.g. Mexican", input_html: { class: "form-input-style" } %>
       <%= f.input :prep_time, placeholder: "Time for preparation in minutes", input_html: { class: "form-input-style" } %>
       <%= f.input :total_time, placeholder: "Total time needed in minutes", input_html: { class: "form-input-style" } %>

@@ -8,7 +8,7 @@
         <h1><%= @recipe.title %></h1>
         <%= image_tag("https://images.unsplash.com/photo-1564355808539-22fda35bed7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2047&q=80", alt: "Recipe Photo", class: "recipe-img") %>
         <p><%= @recipe.description %></p>
-        
+
         <%= render partial: 'shared/recipe_card' %>
       </div>
     </div>
