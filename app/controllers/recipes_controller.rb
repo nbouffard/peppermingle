@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     authorize @recipe
-    @recipe.ingredients.build
+    # @recipe.build_ingredients
   end
 
   def show
